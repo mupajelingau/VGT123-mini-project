@@ -1,0 +1,408 @@
+CGPA-Calculate-Latest
+# Python program to create a 
+# GUI mark sheet using tkinter 
+
+
+# Import tkinter as tk 
+import tkinter as tk 
+import sqlite3
+import tkinter.messagebox
+
+
+def submit():
+	conn = sqlite3.connect('CGPA-Calculate.db')
+
+
+
+# creating a new tkinter window 
+root = tk.Tk() 
+
+# assigning a title 
+root.title("STUDENT CGPA CALCULATE SYSTEM") 
+
+# specifying geomtery for window size 
+root.geometry("1200x850") 
+
+
+# declaring objects for entering data 
+e1 = tk.Entry(root) 
+e2 = tk.Entry(root) 
+e3 = tk.Entry(root) 
+e4 = tk.Entry(root) 
+e5 = tk.Entry(root) 
+e6 = tk.Entry(root) 
+e7 = tk.Entry(root) 
+e8 = tk.Entry(root)
+e9 = tk.Entry(root)
+e10 = tk.Entry(root)
+e11 = tk.Entry(root)
+
+
+# function to display the total subject 
+# credits total credits and CGPA according 
+# to grades entered 
+def display(): 
+	
+	# Varibale to store total marks 
+	tot=0
+	
+	# 10*number of subject credits 
+	# give total credits for grade A 
+	if e4.get()  == "90" : 
+		
+		# grid method is used for placing 
+		# the widgets at respective positions 
+		# in table like structure . 
+		tk.Label(root, text ="A").grid(row=4, column=4) 
+		tot += 4.00*2
+		
+	# 9*number of subject credits give 
+	# total credits for grade A- 
+	if e4.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=4, column=4) 
+		tot += 3.75*2
+		
+	# 8*number of subject credits give 
+	# total credits for grade B+ 
+	if e4.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=4, column=4) 
+		tot += 3.50*2
+		
+	# 7*number of subject credits 
+	# give total credits for grade B	 
+	if e4.get() == "65": 
+		tk.Label(root, text ="B").grid(row=4, column=4) 
+		tot += 3.00*2
+		
+	# 6*number of subject credits give 
+	# total credits for grade B- 
+	if e4.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=4, column=4) 
+		tot += 2.75*2
+		
+	# 0*number of subject credits give 
+	# total credits for grade C+	 
+	if e4.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=4, column=4) 
+		tot += 2.50*2
+	
+	if e4.get() == "50": 
+		tk.Label(root, text ="C").grid(row=4, column=4) 
+		tot += 2.00*2
+
+	if e4.get() == "45": 
+		tk.Label(root, text ="D+").grid(row=4, column=4) 
+		tot += 1.75*2
+
+	if e4.get() == "40": 
+		tk.Label(root, text ="D").grid(row=4, column=4) 
+		tot += 1.00*2
+
+	if e4.get() == "30": 
+		tk.Label(root, text ="F").grid(row=4, column=4) 
+		tot += 0.00*2
+
+	
+	# Similarly doing with other objects 
+	if e5.get() == "90": 
+		tk.Label(root, text ="A").grid(row=5, column=4) 
+		tot += 4.00*2
+	if e5.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=5, column=4) 
+		tot += 3.75*2
+	if e5.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=5, column=4) 
+		tot += 3.50*2
+	if e5.get() == "65": 
+		tk.Label(root, text ="B").grid(row=5, column=4) 
+		tot += 3.00*2
+	if e5.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=5, column=4) 
+		tot += 2.75*2
+	if e5.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=5, column=4) 
+		tot += 2.50*2
+	if e5.get() == "50": 
+		tk.Label(root, text ="C").grid(row=5, column=4) 
+		tot += 2.00*2
+	if e5.get() == "45": 
+		tk.Label(root, text ="D+").grid(row=5, column=4) 
+		tot += 1.75*2
+	if e5.get() == "40": 
+		tk.Label(root, text ="D").grid(row=5, column=4) 
+		tot += 1.00*2
+	if e5.get() == "30": 
+		tk.Label(root, text ="F").grid(row=5, column=4) 
+		tot += 0.0*2
+
+
+
+	if e6.get() == "90": 
+		tk.Label(root, text ="A").grid(row=6, column=4) 
+		tot += 4.00*1
+	if e6.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=6, column=4) 
+		tot += 3.75*1
+	if e6.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=6, column=4) 
+		tot += 3.50*1
+	if e6.get() == "65": 
+		tk.Label(root, text ="B").grid(row=6, column=4) 
+		tot += 3.00*1
+	if e6.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=6, column=4) 
+		tot += 2.75*1
+	if e6.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=6, column=4) 
+		tot += 2.50*4
+	if e6.get() == "50": 
+		tk.Label(root, text ="C").grid(row=6, column=4) 
+		tot += 2.00*1
+	if e6.get() == "40": 
+		tk.Label(root, text ="F").grid(row=6, column=4) 
+		tot += 1.70*1
+	if e6.get() == "45": 
+		tk.Label(root, text ="D+").grid(row=6, column=4) 
+		tot += 1.75*1
+	if e6.get() == "40": 
+		tk.Label(root, text ="D").grid(row=6, column=4) 
+		tot += 1.00*1
+	if e6.get() == "30": 
+		tk.Label(root, text ="F").grid(row=6, column=4) 
+		tot += 0.0*1
+
+
+	if e7.get() == "90": 
+		tk.Label(root, text ="A").grid(row=7, column=4) 
+		tot += 4.00*4
+	if e7.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=7, column=4) 
+		tot += 3.75*4
+	if e7.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=7, column=4) 
+		tot += 3.50*4
+	if e7.get() == "65": 
+		tk.Label(root, text ="B").grid(row=7, column=4) 
+		tot += 3.00*4
+	if e7.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=7, column=4) 
+		tot += 2.75*4
+	if e7.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=7, column=4) 
+		tot += 2.50*4
+	if e7.get() == "50": 
+		tk.Label(root, text ="C").grid(row=7, column=4) 
+		tot += 2.00*4
+	if e7.get() == "45": 
+		tk.Label(root, text ="D+").grid(row=7, column=4) 
+		tot += 1.75*4
+	if e7.get() == "40": 
+		tk.Label(root, text ="D").grid(row=7, column=4) 
+		tot += 1.00*4
+	if e7.get() == "30": 
+		tk.Label(root, text ="F").grid(row=7, column=4) 
+		tot += 0.0*4
+
+
+	if e8.get() == "90": 
+		tk.Label(root, text ="A").grid(row=8, column=4) 
+		tot += 4.00*2
+	if e8.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=8, column=4) 
+		tot += 3.75*2
+	if e8.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=8, column=4) 
+		tot += 3.50*2
+	if e8.get() == "65": 
+		tk.Label(root, text ="B").grid(row=8, column=4) 
+		tot += 3.00*2
+	if e8.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=8, column=4) 
+		tot += 2.75*2
+	if e8.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=8, column=4) 
+		tot += 2.50*2
+	if e8.get() == "50": 
+		tk.Label(root, text ="C").grid(row=8, column=4) 
+		tot += 2.00*2
+	if e8.get() == "45": 
+		tk.Label(root, text ="D+").grid(row=8, column=4) 
+		tot += 1.75*2
+	if e7.get() == "40": 
+		tk.Label(root, text ="D").grid(row=8, column=4) 
+		tot += 1.00*2
+	if e7.get() == "30": 
+		tk.Label(root, text ="F").grid(row=8, column=4) 
+		tot += 0.0*2
+
+	
+	if e9.get() == "90": 
+		tk.Label(root, text ="A").grid(row=9, column=4) 
+		tot += 4.00*4
+	if e9.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=9, column=4) 
+		tot += 3.75*4
+	if e9.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=9, column=4) 
+		tot += 3.50*4
+	if e9.get() == "65": 
+		tk.Label(root, text ="B").grid(row=9, column=4) 
+		tot += 3.00*4
+	if e9.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=9, column=4) 
+		tot += 2.75*4
+	if e9.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=9, column=4) 
+		tot += 2.50*4
+	if e9.get() == "50": 
+		tk.Label(root, text ="C").grid(row=9, column=4) 
+		tot += 2.00*4
+	if e9.get() == "40": 
+		tk.Label(root, text ="F").grid(row=9, column=4) 
+		tot += 1.75*4
+
+	if e10.get() == "90": 
+		tk.Label(root, text ="A").grid(row=10, column=4) 
+		tot += 4.00*3
+	if e10.get() == "80": 
+		tk.Label(root, text ="A-").grid(row=10, column=4) 
+		tot += 3.75*3
+	if e10.get() == "70": 
+		tk.Label(root, text ="B+").grid(row=10, column=4) 
+		tot += 3.50*3
+	if e10.get() == "65": 
+		tk.Label(root, text ="B").grid(row=10, column=4) 
+		tot += 3.00*3
+	if e10.get() == "60": 
+		tk.Label(root, text ="B-").grid(row=10, column=4) 
+		tot += 2.75*3
+	if e10.get() == "55": 
+		tk.Label(root, text ="C+").grid(row=10, column=4) 
+		tot += 2.50*3
+	if e10.get() == "50": 
+		tk.Label(root, text ="C").grid(row=10, column=4) 
+		tot += 2.00*3
+	if e10.get() == "45": 
+		tk.Label(root, text ="D+").grid(row=10, column=4) 
+		tot += 1.75*3
+	if e10.get() == "40": 
+		tk.Label(root, text ="D").grid(row=10, column=4) 
+		tot += 1.00*3
+	if e10.get() == "30": 
+		tk.Label(root, text ="F").grid(row=10, column=4) 
+		tot += 0.00*3
+
+
+
+
+	# to display total credits 
+	tk.Label(root, font=("Courier",11), text=str(tot)).grid(row=16, column=4)
+	tk.Label(root, text=str(tot/18)).grid(row=17, column=4)
+
+	
+	
+# end of display function 
+
+# label to enter name 
+tk.Label(root, text="Student Name",font=("Arial",10)).grid(row=0, column=0) 
+
+# label for ic number 
+tk.Label(root, text="IC Number",font=("Arial",10)).grid(row=0, column=3) 
+
+# label for matric Number 
+tk.Label(root, text="Matric Number",font=("Arial",10)).grid(row=1, column=0) 
+
+#label for programme
+tk.Label(root, text="Programme/Semester",font=("Arial",10)).grid(row=1, column=3, padx=0)
+
+#tk.Label(root, text="Semester").grid(row=0, column = 12)
+
+# labels for sequence data 
+tk.Label(root, text="No",font=("Courier",11)).grid(row=2, column=0) 
+tk.Label(root, text="1",font=("Courier",10)).grid(row=4, column=0) 
+tk.Label(root, text="2",font=("Courier",10)).grid(row=5, column=0) 
+tk.Label(root, text="3",font=("Courier",10)).grid(row=6, column=0) 
+tk.Label(root, text="4",font=("Courier",10)).grid(row=7, column=0)
+tk.Label(root, text="4",font=("Courier",10)).grid(row=7, column=0)
+tk.Label(root, text="5",font=("Courier",10)).grid(row=8, column=0)
+tk.Label(root, text="6",font=("Courier",10)).grid(row=9, column=0)
+tk.Label(root, text="7",font=("Courier",10)).grid(row=10, column=0)
+
+
+
+# labels for subject codes 
+tk.Label(root, text="Subject",font=("Courier",10)).grid(row=2, column=1) 
+tk.Label(root, text="UVW 201 English For General Communication",font=("Courier",10)).grid(row=4, column=1)
+
+tk.Label(root, text="UUW 322 Thinking Skills",font=("Courier",10)).grid(row=5, column=1) 
+
+tk.Label(root, text="UZW 178 Silat Olahraga",font=("Courier",10)).grid(row=6, column=1)
+
+tk.Label(root, text="VGT 121 Technology Skill and Development in Electronic Automation 2",font=("Courier",10)).grid(row=7, column=1)
+
+tk.Label(root, text="VGT 122 Networking,Switching and Routing",font=("Courier",10)).grid(row=8, column=1)
+ 
+tk.Label(root, text="VGT 123 Technology System Programming 2",font=("Courier",10)).grid(row=9, column=1)
+
+tk.Label(root, text="VLT 123 - Professional Pratices",font=("Courier",10)).grid(row=10, column=1)
+
+
+
+
+	
+# label for marks
+tk.Label(root, text="Marks",font=("Courier",11)).grid(row=2, column=2) 
+e4.grid(row=4, column=2) 
+e5.grid(row=5, column=2) 
+e6.grid(row=6, column=2) 
+e7.grid(row=7, column=2) 
+e8.grid(row=8, column=2)
+e9.grid(row=9, column=2)
+e10.grid(row=10, column=2)
+
+tk.Label(root, text="Grade",font=("Courier",11)).grid(row=2, column=4) 
+
+# labels for credits hours 
+tk.Label(root, text="Credit Hours",font=("Courier",11)).grid(row=2, column=3) 
+tk.Label(root, text="2",font=("Courier",11)).grid(row=4, column=3) 
+tk.Label(root, text="2",font=("Courier",11)).grid(row=5, column=3) 
+tk.Label(root, text="1",font=("Courier",11)).grid(row=6, column=3) 
+tk.Label(root, text="4",font=("Courier",11)).grid(row=7, column=3) 
+tk.Label(root, text="2",font=("Courier",11)).grid(row=8, column=3)
+tk.Label(root, text="4",font=("Courier",11)).grid(row=9, column=3)
+tk.Label(root, text="3",font=("Courier",11)).grid(row=10, column=3)
+
+
+
+
+# taking entries of student name, matric number, programme , ic number
+e1=tk.Entry(root)
+e2=tk.Entry(root) 
+e3=tk.Entry(root) 
+e11=tk.Entry(root)
+
+
+# organizing them in the grid 
+e1.grid(row=0, column=1,) 
+e2.grid(row=0, column=4) 
+e3.grid(row=1, column=1) 
+e11.grid(row=1, column=4)
+
+
+# button to display all the calculated credit scores and cgpa 
+button1=tk.Button(root, text="GENERATE CGPA",font=("Courier",12), bg="Purple", command=display) 
+button1.grid(row=17, column=1) 
+
+
+
+tk.Label(root, text="Total credit",font=("Courier",12)).grid(row=16, column=3) 
+tk.Label(root, text="CGPA",font=("Courier",12)).grid(row=17, column=3) 
+	
+
+
+
+root.mainloop() 
+
+
+#createbyMupaJelingau
+
